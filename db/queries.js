@@ -7,4 +7,13 @@ async function getAllMessagesWithNameArray() {
   return rows;
 }
 
-module.exports = { getAllMessagesWithNameArray };
+async function insertUser(username, fullname, password) {
+  await pool.query(
+    `INSERT INTO
+    users (username, fullname, password)
+    VALUES ($1, $2, $3);`,
+    [username, fullname, password]
+  );
+}
+
+module.exports = { getAllMessagesWithNameArray, insertUser };
