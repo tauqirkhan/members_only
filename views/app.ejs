@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Only</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <section class="actionSection"></section>
+      <section class="messagesSection">
+        <% messagesArray.forEach(message => { %>
+        <div class="message">
+          <img src="#" alt="profileImage" class="messageImage" />
+          <div class="messageInfo">
+            <div class="messageHeader">
+              <p class="messageAuthorName"><%= message.full_name %></p>
+              <p class="messageUserName"><%= message.user_name %></p>
+              <p class="messageDuration"></p>
+            </div>
+            <div class="messageBody">
+              <p class="messageTitle"><%= message.title %></p>
+              <p class="messageText"><%= message.message_text %></p>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

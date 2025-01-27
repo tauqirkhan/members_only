@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("node:path");
+const indexRouter = require("./routes/indexRouter");
 
 const PORT = process.env.PORT || 3000;
 
@@ -9,6 +10,11 @@ app.use(express.static(assetPath));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
+//Data type of req.body will only be string
+app.use(express.urlencoded({ extended: false }));
+
+app.use("/", indexRouter);
 
 app.use((err, req, res, next) => {
   console.error(err);
