@@ -1,8 +1,17 @@
 const loginDialog = document.querySelector("#loginDialog");
 const loginBtn = document.querySelector(".loginBtn");
+const messageDialog = document.querySelector("#messageDialog");
+const createMessageBtn = document.querySelector(".createMessageBtn");
 
-loginBtn.addEventListener("click", () => openModal(loginDialog));
-loginDialog.addEventListener("click", (e) => closeModal(e, loginDialog));
+if (createMessageBtn && messageDialog) {
+  createMessageBtn.addEventListener("click", () => openModal(messageDialog));
+  messageDialog.addEventListener("click", (e) => closeModal(e, messageDialog));
+}
+
+if (loginBtn && loginDialog) {
+  loginBtn.addEventListener("click", () => openModal(loginDialog));
+  loginDialog.addEventListener("click", (e) => closeModal(e, loginDialog));
+}
 
 function openModal(dialog) {
   dialog.showModal();

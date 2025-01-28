@@ -1,7 +1,7 @@
 const db = require("../db/queries");
 const bcrypt = require("bcrypt");
 
-const postSignUp = async (req, res) => {
+const postSignUp = async (req, res, next) => {
   try {
     const { username, fullname, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 17);
