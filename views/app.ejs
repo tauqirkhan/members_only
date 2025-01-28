@@ -8,8 +8,8 @@
   </head>
   <body>
     <header>
-      <% if(locals.user) { %>
-      <div><%= user.username %></div>
+      <% if(locals.currentUser) { %>
+      <div><%= currentUser.username %></div>
       <a href="/log-out">LOG OUT</a>
       <% } else { %>
       <button class="loginBtn">Login</button>

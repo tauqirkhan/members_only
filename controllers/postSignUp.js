@@ -1,10 +1,16 @@
 const db = require("../db/queries");
+const bcrypt = require("bcrypt");
 
 const postSignUp = async (req, res) => {
-  const { username, fullname, password } = req.body;
-  await db.insertUser(username, fullname, password);
-
-  res.redirect("/");
+  try {
+    const { username, fullname, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 17);
+    await db.insertUser(username, fullname, hashedPassword);
+    res.redirect("/");
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
 };
 
 module.exports = postSignUp;

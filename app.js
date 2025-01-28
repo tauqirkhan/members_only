@@ -5,6 +5,7 @@ const session = require("express-session");
 const pgSession = require("connect-pg-simple")(session);
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcrypt");
 const indexRouter = require("./routes/indexRouter");
 const pool = require("./db/pool");
 
@@ -47,8 +48,7 @@ passport.use(
 
       if (!user) return done(null, false, { message: "Incorrect username" });
 
-      //compare later with bcrypt
-      const match = password === user.password;
+      const match = await bcrypt.compare(password, user.password);
 
       if (!match) return done(null, false, { message: "Incorrect password" });
 
@@ -59,6 +59,9 @@ passport.use(
   })
 );
 
+// The reason passport require us to define these functions is so
+// that we can make sure that whatever bit of data it’s looking
+// for actually exists in our Database
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -78,6 +81,7 @@ passport.deserializeUser(async (id, done) => {
 });
 
 app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
   console.log("currentUser Name", req.user);
   console.log("req.session", req.session);
   console.log("req.sessionID", req.sessionID);
@@ -97,7 +101,7 @@ app.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "sign-in",
+    failureRedirect: "/sign-up",
   })
 );
 
