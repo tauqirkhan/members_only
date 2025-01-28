@@ -5,6 +5,7 @@ const getIndexPage = async (req, res) => {
 
   res.render("app", {
     messagesArray: messagesArray,
+    user: req.user,
   });
 };
 
