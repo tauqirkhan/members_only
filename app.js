@@ -82,9 +82,9 @@ passport.deserializeUser(async (id, done) => {
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  console.log("currentUser Name", req.user);
-  console.log("req.session", req.session);
-  console.log("req.sessionID", req.sessionID);
+  // console.log("currentUser Name", req.user);
+  // console.log("req.session", req.session);
+  // console.log("req.sessionID", req.sessionID);
   next();
 });
 

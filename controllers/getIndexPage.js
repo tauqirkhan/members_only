@@ -10,6 +10,8 @@ const getIndexPage = async (req, res) => {
     if (isMember) isUserMember = true;
   }
 
+  console.log("messagesArray", messagesArray);
+
   res.render("app", {
     messagesArray: messagesArray,
     isUserMember: isUserMember,
