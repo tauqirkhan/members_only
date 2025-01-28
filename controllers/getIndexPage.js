@@ -2,10 +2,18 @@ const db = require("../db/queries");
 
 const getIndexPage = async (req, res) => {
   const messagesArray = await db.getAllMessagesWithNameArray();
+  let isUserMember = false;
+  const currentUser = res.locals.currentUser;
+
+  if (currentUser) {
+    const isMember = await db.isMember(currentUser.id);
+    if (isMember) isUserMember = true;
+  }
 
   res.render("app", {
     messagesArray: messagesArray,
-    user: req.user,
+    isUserMember: isUserMember,
+    // user: req.user,
   });
 };
 

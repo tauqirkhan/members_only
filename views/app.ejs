@@ -11,6 +11,9 @@
       <% if(locals.currentUser) { %>
       <div><%= currentUser.username %></div>
       <button class="createMessageBtn">+ Create Message</button>
+      <% if (!isUserMember) { %>
+      <button class="membershipBtn">Become member</button>
+      <% } %>
       <a href="/log-out">LOG OUT</a>
       <% } else { %>
       <button class="loginBtn">Login</button>
@@ -20,7 +23,7 @@
       <section class="actionSection"></section>
       <section class="messagesSection">
         <% messagesArray.forEach(message => { %> <%- include('partials/message',
-        {message: message}) %> <% }) %>
+        {message: message, isUserMember: isUserMember}) %> <% }) %>
       </section>
     </main>
     <footer></footer>
@@ -48,6 +51,21 @@
         <div>
           <label for="messageText">Enter text</label>
           <input type="text" name="messageText" id="messageText" required />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </dialog>
+    <dialog id="membershipDialog">
+      <form action="/membership" method="POST">
+        <div class="formHead">Become member by answering correctly</div>
+        <div>
+          <label for="membershipQuestion">Enter current year?</label>
+          <input
+            type="text"
+            name="membershipAnswer"
+            id="membershipQuestion"
+            required
+          />
         </div>
         <button type="submit">Submit</button>
       </form>

@@ -2,6 +2,8 @@ const loginDialog = document.querySelector("#loginDialog");
 const loginBtn = document.querySelector(".loginBtn");
 const messageDialog = document.querySelector("#messageDialog");
 const createMessageBtn = document.querySelector(".createMessageBtn");
+const membershipDialog = document.querySelector("#membershipDialog");
+const membershipBtn = document.querySelector(".membershipBtn");
 
 if (createMessageBtn && messageDialog) {
   createMessageBtn.addEventListener("click", () => openModal(messageDialog));
@@ -11,6 +13,13 @@ if (createMessageBtn && messageDialog) {
 if (loginBtn && loginDialog) {
   loginBtn.addEventListener("click", () => openModal(loginDialog));
   loginDialog.addEventListener("click", (e) => closeModal(e, loginDialog));
+}
+
+if (membershipBtn && membershipDialog) {
+  membershipBtn.addEventListener("click", () => openModal(membershipDialog));
+  membershipDialog.addEventListener("click", (e) =>
+    closeModal(e, membershipDialog)
+  );
 }
 
 function openModal(dialog) {

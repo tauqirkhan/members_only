@@ -12,6 +12,6 @@ indexRouter.get("/sign-up", getSignUpPage);
 
 indexRouter.post("/sign-up", postSignUp);
 indexRouter.post("/message", postMessage);
-// indexRouter.post("/membership", postMembership);
+indexRouter.post("/membership", postMembership);
 
 module.exports = indexRouter;
