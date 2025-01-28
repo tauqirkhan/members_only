@@ -13,7 +13,6 @@ const getIndexPage = async (req, res) => {
   res.render("app", {
     messagesArray: messagesArray,
     isUserMember: isUserMember,
-    // user: req.user,
   });
 };
 

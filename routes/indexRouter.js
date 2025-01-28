@@ -7,7 +7,7 @@ const postSignUp = require("../controllers/postSignUp");
 
 const indexRouter = Router();
 
-indexRouter.get(["/", "home", "index"], getIndexPage);
+indexRouter.get(["/", "/home", "/index"], getIndexPage);
 indexRouter.get("/sign-up", getSignUpPage);
 
 indexRouter.post("/sign-up", postSignUp);
