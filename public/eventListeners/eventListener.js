@@ -1,25 +1,21 @@
 const loginDialog = document.querySelector("#loginDialog");
-const loginBtn = document.querySelector(".loginBtn");
 const messageDialog = document.querySelector("#messageDialog");
-const createMessageBtn = document.querySelector(".createMessageBtn");
 const membershipDialog = document.querySelector("#membershipDialog");
-const membershipBtn = document.querySelector(".membershipBtn");
+const loginBtnNodeList = document.querySelectorAll(".loginBtn");
+const createMessageBtnNodeList = document.querySelectorAll(".createMessageBtn");
+const membershipBtnNodeList = document.querySelectorAll(".membershipBtn");
 
-if (createMessageBtn && messageDialog) {
-  createMessageBtn.addEventListener("click", () => openModal(messageDialog));
-  messageDialog.addEventListener("click", (e) => closeModal(e, messageDialog));
-}
+addEventListenerToNodeList(loginBtnNodeList, loginDialog);
+addEventListenerToNodeList(createMessageBtnNodeList, messageDialog);
+addEventListenerToNodeList(membershipBtnNodeList, membershipDialog);
 
-if (loginBtn && loginDialog) {
-  loginBtn.addEventListener("click", () => openModal(loginDialog));
-  loginDialog.addEventListener("click", (e) => closeModal(e, loginDialog));
-}
-
-if (membershipBtn && membershipDialog) {
-  membershipBtn.addEventListener("click", () => openModal(membershipDialog));
-  membershipDialog.addEventListener("click", (e) =>
-    closeModal(e, membershipDialog)
-  );
+function addEventListenerToNodeList(nodeList, dialog) {
+  if (dialog && nodeList.length > 0) {
+    for (let i = 0; i < nodeList.length; i++) {
+      nodeList[i].addEventListener("click", () => openModal(dialog));
+      dialog.addEventListener("click", (e) => closeModal(e, dialog));
+    }
+  }
 }
 
 function openModal(dialog) {
