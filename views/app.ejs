@@ -15,7 +15,9 @@
         <button class="createMessageBtn">+ Create Message</button>
         <div class="usernameHeader"><%= currentUser.username %></div>
         <% if (!isUserMember) { %>
-        <button class="membershipBtn">Become member</button>
+        <button class="membershipBtn membershipBtnListener">
+          Become member
+        </button>
         <% } %>
         <a href="/log-out" class="logoutBtn">LOG OUT</a>
         <% } else { %>
@@ -25,12 +27,23 @@
       </nav>
     </header>
     <main>
-      <section class="actionSection">
-        <% if(!locals.currentUser) { %>
-        <p>You must <button class="loginBtn">LOGIN</button> to create post</p>
-        <% } %>
-      </section>
       <section class="messagesSection">
+        <div class="actionDiv">
+          <% if(!isUserMember && locals.currentUser) { %>
+          <p>
+            You must be a
+            <button class="membershipBtnListener actionMembershipBtn">
+              MEMBER
+            </button>
+            to access additional message information
+          </p>
+          <% } %> <% if(!locals.currentUser) { %>
+          <p>
+            You must <button class="loginBtn actionLoginBtn">LOGIN</button> to
+            create post
+          </p>
+          <% } %>
+        </div>
         <% messagesArray.forEach(message => { %> <%- include('partials/message',
         {message: message, isUserMember: isUserMember}) %> <% }) %>
       </section>

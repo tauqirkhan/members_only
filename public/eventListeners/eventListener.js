@@ -3,7 +3,9 @@ const messageDialog = document.querySelector("#messageDialog");
 const membershipDialog = document.querySelector("#membershipDialog");
 const loginBtnNodeList = document.querySelectorAll(".loginBtn");
 const createMessageBtnNodeList = document.querySelectorAll(".createMessageBtn");
-const membershipBtnNodeList = document.querySelectorAll(".membershipBtn");
+const membershipBtnNodeList = document.querySelectorAll(
+  ".membershipBtnListener"
+);
 
 addEventListenerToNodeList(loginBtnNodeList, loginDialog);
 addEventListenerToNodeList(createMessageBtnNodeList, messageDialog);
