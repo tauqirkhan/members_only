@@ -45,7 +45,8 @@
           <% } %>
         </div>
         <% messagesArray.forEach(message => { %> <%- include('partials/message',
-        {message: message, isUserMember: isUserMember}) %> <% }) %>
+        {message: message, isUserMember: isUserMember, timesAgo: timesAgo}) %>
+        <% }) %>
       </section>
     </main>
     <footer>
