@@ -60,27 +60,45 @@
     <dialog id="loginDialog">
       <form action="/login" method="POST">
         <div class="formHead">Login</div>
-        <div>
-          <label for="usernameLogin">Username</label>
-          <input type="text" name="username" id="usernameLogin" required />
+        <div class="inputDiv">
+          <label for="usernameLogin">*Username :</label>
+          <input
+            type="text"
+            name="username"
+            id="usernameLogin"
+            autocomplete="off"
+            required
+          />
         </div>
-        <div>
-          <label for="passwordLogin">Password</label>
+        <div class="inputDiv">
+          <label for="passwordLogin">*Password :</label>
           <input type="password" name="password" id="passwordLogin" required />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Submit</button>
       </form>
     </dialog>
     <dialog id="messageDialog">
       <form action="/message" method="POST">
         <div class="formHead">Create message</div>
-        <div>
-          <label for="messageTitle">Enter title</label>
-          <input type="text" name="messageTitle" id="messageTitle" required />
+        <div class="inputDiv">
+          <label for="messageTitle">*Enter title :</label>
+          <input
+            type="text"
+            name="messageTitle"
+            id="messageTitle"
+            autocomplete="off"
+            required
+          />
         </div>
-        <div>
-          <label for="messageText">Enter text</label>
-          <input type="text" name="messageText" id="messageText" required />
+        <div class="inputDiv">
+          <label for="messageText">*Enter text :</label>
+          <input
+            type="text"
+            name="messageText"
+            id="messageText"
+            autocomplete="off"
+            required
+          />
         </div>
         <button type="submit">Submit</button>
       </form>
@@ -88,12 +106,13 @@
     <dialog id="membershipDialog">
       <form action="/membership" method="POST">
         <div class="formHead">Become member by answering correctly</div>
-        <div>
-          <label for="membershipQuestion">Enter current year?</label>
+        <div class="inputDiv">
+          <label for="membershipQuestion">*Enter current year?</label>
           <input
             type="text"
             name="membershipAnswer"
             id="membershipQuestion"
+            autocomplete="off"
             required
           />
         </div>
