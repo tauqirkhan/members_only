@@ -4,23 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign-Up</title>
+    <link rel="stylesheet" href="/sign-up.css" />
   </head>
   <body>
-    <form action="/sign-up" method="POST">
-      <div>
-        <label for="username">Enter username*</label>
-        <input type="text" name="username" id="username" required />
-      </div>
-      <div>
-        <label for="fullname">Enter fullname*</label>
-        <input type="text" name="fullname" id="fullname" required />
-      </div>
-      <div>
-        <label for="password">Enter password*</label>
-        <input type="password" name="password" id="password" required />
-      </div>
-      <div>Later add confirm password input</div>
-      <button type="submit">Sign-Up</button>
-    </form>
+    <main>
+      <section class="leftSection">
+        <img
+          class="posterImage"
+          src="/image/background.jpg"
+          alt="Poster Image"
+          draggable="false"
+        />
+        <div class="bgText">
+          <img src="/image/logo.jpeg" alt="Logo" class="members_only_logo" />
+          <p>Members Only</p>
+        </div>
+      </section>
+      <section class="rightSection">
+        <div class="taglineDiv">
+          <p>
+            Sign up today to get access to exclusive content and special perks
+            just for members.
+          </p>
+          <br />
+          <p>Be part of our community and enjoy the best we offer!</p>
+          <br />
+          <br />
+          <p>For Members Who Want More.</p>
+        </div>
+        <div class="formDiv">
+          <form action="/sign-up" method="POST" id="sign-up-form">
+            <div class="formHead">Sign Up and Get In!</div>
+            <div>
+              <label for="username">* USERNAME:</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div>
+              <label for="fullname">* FULLNAME:</label>
+              <input
+                type="text"
+                name="fullname"
+                id="fullname"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="passwordsDiv">
+              <div>
+                <label for="password">* PASSWORD:</label>
+                <input type="password" name="password" id="password" required />
+              </div>
+              <div>
+                <label for="confirmPassword">* CONFIRM PASSWORD:</label>
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  required
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="actionDiv">
+          <button type="submit" form="sign-up-form" class="submitBtn">
+            Create account
+          </button>
+          <div class="loginDiv">
+            <p>Already have an account? <span class="loginBtn">Log in</span></p>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
