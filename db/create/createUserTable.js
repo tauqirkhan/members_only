@@ -14,9 +14,9 @@ const createUserTable = async () => {
   const insertSQL = `
     INSERT INTO users(username, fullname, password)
     VALUES
-      ('FakeUserName1', 'Dummy User1', '${hashedPassword}'),
-      ('FakeUserName2', 'Dummy User2', '${hashedPassword}'),
-      ('FakeUserName3', 'Dummy User3', '${hashedPassword}');
+      ('username1', 'Dummy User1', '${hashedPassword}'),
+      ('username2', 'Dummy User2', '${hashedPassword}'),
+      ('username3', 'Dummy User3', '${hashedPassword}');
   `;
 
   return { createTableSQL, insertSQL };

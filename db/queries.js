@@ -8,11 +8,12 @@ async function getAllMessagesWithNameArray() {
 }
 
 async function insertUser(username, fullname, password) {
+  const lowerCaseUsername = username.toLowerCase();
   await pool.query(
     `INSERT INTO
     users (username, fullname, password)
     VALUES ($1, $2, $3);`,
-    [username, fullname, password]
+    [lowerCaseUsername, fullname, password]
   );
 }
 
