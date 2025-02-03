@@ -90,6 +90,14 @@
     </main>
     <dialog id="loginDialog">
       <form action="/login" method="POST">
+        <% if (locals.session.messages) { %>
+        <div class="error">
+          <%= locals.session.messages[locals.session.messages.length - 1] %>
+        </div>
+        <script>
+          document.querySelector("#loginDialog").showModal();
+        </script>
+        <% } %>
         <div class="formHead">Login</div>
         <div class="inputDiv">
           <label for="usernameLogin">*Username :</label>

@@ -82,8 +82,8 @@ passport.deserializeUser(async (id, done) => {
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  // console.log("currentUser Name", req.user);
-  // console.log("req.session", req.session);
+  //now locals.session.messages can contain failureMessage
+  res.locals.session = req.session;
   // console.log("req.sessionID", req.sessionID);
   next();
 });
@@ -102,8 +102,11 @@ app.post(
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/sign-up",
+    failureMessage: true,
   })
 );
+
+// Need to fix: Redirect user to same page when entered wrong pw on dialog
 
 app.use((err, req, res, next) => {
   console.error(err);

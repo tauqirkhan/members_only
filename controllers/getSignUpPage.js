@@ -1,5 +1,6 @@
 const getSignUpPage = async (req, res) => {
-  res.render("sign-up");
+  if (req.isAuthenticated()) res.redirect("/");
+  else res.render("sign-up");
 };
 
 module.exports = getSignUpPage;
