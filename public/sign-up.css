@@ -180,7 +180,7 @@ img {
 form {
   display: flex;
   flex-direction: column;
-  padding: 50px 50px 20px;
+  padding: 50px 50px 40px;
   gap: 50px;
   font-size: 21px;
 }
@@ -202,7 +202,7 @@ input {
 
 input:focus {
   border: none;
-  outline: solid var(--accent-color);
+  outline: solid var(--primary-color-2);
 }
 
 .passwordsDiv {
@@ -234,6 +234,7 @@ input:focus {
   background-color: var(--accent-color);
   color: var(--accent-text-color);
   border: none;
+  transition: background-color 0.5s ease-in;
 }
 
 .submitBtn:hover {
@@ -318,4 +319,27 @@ dialog form input:focus {
 dialog form button:hover {
   color: var(--accent-text-color);
   background-color: var(--accent-color);
+}
+
+input + span {
+  position: relative;
+}
+
+.password-mismatch {
+  border: 2px solid red;
+  box-shadow: none;
+}
+
+.password-mismatch + span::after {
+  position: absolute;
+  top: 25px;
+  left: -240px;
+  content: "* Password do not match";
+  color: #ffe0e0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.submitBtnRed {
+  background-color: red;
 }

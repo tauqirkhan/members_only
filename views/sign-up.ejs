@@ -40,7 +40,7 @@
         </div>
         <div class="formDiv">
           <form action="/sign-up" method="POST" id="sign-up-form">
-            <div class="formHeading">Sign Up and Get In!</div>
+            <div class="formHead">Sign Up and Get In!</div>
             <div>
               <label for="username">* USERNAME:</label>
               <input
@@ -65,6 +65,7 @@
               <div>
                 <label for="password">* PASSWORD:</label>
                 <input type="password" name="password" id="password" required />
+                <span></span>
               </div>
               <div>
                 <label for="confirmPassword">* CONFIRM PASSWORD:</label>
@@ -74,6 +75,7 @@
                   id="confirmPassword"
                   required
                 />
+                <span></span>
               </div>
             </div>
           </form>
@@ -116,5 +118,36 @@
         <button type="submit">Submit</button>
       </form>
     </dialog>
+    <script>
+      const pwd = document.querySelector("#password");
+      const cPwd = document.querySelector("#confirmPassword");
+      const form = document.querySelector("#sign-up-form");
+      const submitBtn = document.querySelector(".submitBtn");
+
+      pwd.addEventListener("input", checkPasswords);
+      cPwd.addEventListener("input", checkPasswords);
+      form.addEventListener("submit", handleSubmit);
+
+      function checkPasswords() {
+        if (pwd.value !== cPwd.value) {
+          cPwd.classList.add("password-mismatch");
+          submitBtn.classList.add("submitBtnRed");
+        } else {
+          cPwd.classList.remove("password-mismatch");
+          submitBtn.classList.remove("submitBtnRed");
+        }
+      }
+
+      function handleSubmit(e) {
+        e.preventDefault();
+
+        if (pwd.value === cPwd.value) {
+          e.target.submit();
+          return;
+        }
+
+        console.log("match password");
+      }
+    </script>
   </body>
 </html>
