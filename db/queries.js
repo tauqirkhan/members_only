@@ -46,10 +46,22 @@ async function isMember(user_id) {
   return true;
 }
 
+async function doesUsernameExists(username) {
+  const { rows } = await pool.query(
+    "select username from users where username = $1",
+    [username]
+  );
+
+  if (rows.length > 0) return true;
+
+  return false;
+}
+
 module.exports = {
   getAllMessagesWithNameArray,
   insertUser,
   insertMessage,
   insertMember,
   isMember,
+  doesUsernameExists,
 };

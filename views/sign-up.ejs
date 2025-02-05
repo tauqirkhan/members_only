@@ -50,6 +50,9 @@
                 autocomplete="off"
                 required
               />
+              <span>
+                <%- include("partials/errors.ejs", { path: "username" }) %>
+              </span>
             </div>
             <div>
               <label for="fullname">* FULLNAME:</label>
@@ -60,12 +63,17 @@
                 autocomplete="off"
                 required
               />
+              <span>
+                <%- include("partials/errors.ejs", { path: "fullname" }) %>
+              </span>
             </div>
             <div class="passwordsDiv">
               <div>
                 <label for="password">* PASSWORD:</label>
                 <input type="password" name="password" id="password" required />
-                <span></span>
+                <span>
+                  <%- include("partials/errors.ejs", {path: "password"}) %>
+                </span>
               </div>
               <div>
                 <label for="confirmPassword">* CONFIRM PASSWORD:</label>
@@ -75,7 +83,10 @@
                   id="confirmPassword"
                   required
                 />
-                <span></span>
+                <span>
+                  <%- include("partials/errors.ejs", {path: "confirmPassword"})
+                  %>
+                </span>
               </div>
             </div>
           </form>
@@ -145,8 +156,6 @@
           e.target.submit();
           return;
         }
-
-        console.log("match password");
       }
     </script>
   </body>

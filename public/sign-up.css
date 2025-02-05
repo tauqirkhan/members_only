@@ -170,6 +170,7 @@ img {
 
 .formDiv {
   background-color: var(--primary-color-1);
+  padding-bottom: 40px;
 }
 
 .formHead {
@@ -215,6 +216,31 @@ input:focus {
   display: flex;
   gap: 30px;
   align-items: center;
+}
+
+.formDiv form > div,
+.passwordsDiv > div {
+  position: relative;
+}
+
+.formDiv input + span {
+  position: absolute;
+  top: 40px;
+  left: 170px;
+  color: #ffe0e0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.formDiv ul {
+  list-style-type: none;
+  min-width: 20px;
+}
+
+.formDiv ul li::before {
+  content: "*";
+  margin-right: 10px;
+  color: #ffe0e0;
 }
 
 .actionDiv {
@@ -321,23 +347,17 @@ dialog form button:hover {
   background-color: var(--accent-color);
 }
 
-input + span {
-  position: relative;
-}
-
 .password-mismatch {
   border: 2px solid red;
   box-shadow: none;
 }
 
 .password-mismatch + span::after {
-  position: absolute;
-  top: 25px;
-  left: -240px;
-  content: "* Password do not match";
+  content: "* passwords do not match";
   color: #ffe0e0;
-  font-size: 18px;
-  font-weight: bold;
+  position: absolute;
+  left: 100px;
+  min-width: 200px;
 }
 
 .submitBtnRed {
