@@ -104,16 +104,24 @@ app.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/",
+    // Need to fix: Redirect user to same page when entered wrong pw on dialog
     failureRedirect: "/sign-up",
     failureMessage: true,
   })
 );
 
-// Need to fix: Redirect user to same page when entered wrong pw on dialog
+app.use((req, res) => {
+  res.render("error", {
+    error: {
+      statusCode: "404",
+      message: "This is not the page you're looking for",
+    },
+  });
+});
 
 app.use((err, req, res, next) => {
   console.error(err);
-  res.status(err.statusCode || 500).send(err.message);
+  res.status(err.statusCode || 500).redirect("error", { error: err });
 });
 
 app.listen(PORT, () => {
