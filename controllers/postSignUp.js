@@ -26,7 +26,7 @@ const validatorUser = [
     .trim()
     .notEmpty()
     .withMessage(`username ${emptyErr}`)
-    .isLength({ min: 5, max: 24 })
+    .isLength({ min: 4, max: 24 })
     .withMessage(`username ${usernameLengthErr}`)
     .custom(async (value) => {
       const username = await db.doesUsernameExists(value);

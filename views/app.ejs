@@ -114,7 +114,13 @@
     </dialog>
     <dialog id="membershipDialog">
       <form action="/membership" method="POST">
-        <div class="formHead">Become member by answering correctly</div>
+        <div class="formHead">
+          <% if(membershipErr) { %> <%= membershipErr %>
+          <script>
+            document.querySelector("#membershipDialog").showModal();
+          </script>
+          <% } else { %> Become member by answering correctly <% } %>
+        </div>
         <div class="inputDiv">
           <label for="membershipQuestion">*Enter current year?</label>
           <input

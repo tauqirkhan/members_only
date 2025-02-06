@@ -1,4 +1,7 @@
 const db = require("../db/queries");
+const { body, validationResult } = require("express-validator");
+
+const validator = [body("")];
 
 require("dotenv").config();
 
@@ -11,6 +14,9 @@ const postMembership = async (req, res) => {
     if (membershipAnswer === process.env.MEMBERSHIPANSWER) {
       const isMember = await db.isMember(Number(currentUserId));
       if (!isMember) await db.insertMember(Number(currentUserId));
+    } else {
+      req.session.memberShipError = "Enter correct answer";
+      return res.status(400).redirect("/");
     }
   }
   res.redirect("/");

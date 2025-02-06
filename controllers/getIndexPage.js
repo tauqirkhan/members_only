@@ -5,6 +5,8 @@ const getIndexPage = async (req, res) => {
   const messagesArray = await db.getAllMessagesWithNameArray();
   let isUserMember = false;
   const currentUser = res.locals.currentUser;
+  const membershipErr = req.session.memberShipError || null;
+  req.session.memberShipError = null;
 
   if (currentUser) {
     const isMember = await db.isMember(currentUser.id);
@@ -15,6 +17,7 @@ const getIndexPage = async (req, res) => {
     messagesArray: messagesArray,
     isUserMember: isUserMember,
     timesAgo: timesAgo,
+    membershipErr: membershipErr,
   });
 };
 
