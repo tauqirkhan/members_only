@@ -204,8 +204,7 @@ dialog form button {
   transition: background-color 0.5s ease-in;
 }
 
-dialog form input {
-  border-radius: 5px;
+form input {
   width: 200px;
   height: 20px;
   font-size: 18px;
@@ -214,6 +213,7 @@ dialog form input {
   border-radius: 5px;
 }
 
+#messageDialog textarea:focus,
 dialog form input:focus {
   outline: solid var(--secondary-color-2);
   border: none;
@@ -222,6 +222,57 @@ dialog form input:focus {
 dialog form button:hover {
   color: var(--accent-text-color);
   background-color: var(--accent-color);
+}
+
+/* message form */
+
+#messageDialog form {
+  max-width: 720px;
+}
+
+#messageDialog input {
+  width: 520px;
+  font-size: 21px;
+}
+
+#messageDialog .labelTextArea {
+  align-self: flex-start;
+}
+
+#messageDialog textarea {
+  resize: none;
+  width: 520px;
+  height: 220px;
+  font-size: 18px;
+  padding: 5px 10px;
+  border: 1px solid rgb(128, 128, 128);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  max-width: 10px;
+}
+
+/* Track */
+#messageDialog ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+#messageDialog ::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  min-height: 70px;
+}
+
+/* Handle on hover */
+#messageDialog ::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color-2);
+}
+
+#messageDialog ::-webkit-scrollbar,
+#messageDialog ::-webkit-scrollbar-track,
+#messageDialog ::-webkit-scrollbar-thumb {
+  border-radius: 0;
 }
 
 header {
