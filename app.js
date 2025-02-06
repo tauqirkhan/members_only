@@ -82,7 +82,7 @@ passport.deserializeUser(async (id, done) => {
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  //now locals.session.messages can contain failureMessage
+  //now locals.session.messages can contain failureMessage's
   //deep copy as req.session.messages is property of obj reference
   //which edits both req and res obj property
   res.locals.session = JSON.parse(JSON.stringify(req.session));
