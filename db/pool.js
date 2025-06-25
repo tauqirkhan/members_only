@@ -1,10 +1,8 @@
 const { Pool } = require("pg");
 require("dotenv").config();
 
+const connectionString = process.env.CONNECTIONSTRING;
+
 module.exports = new Pool({
-  host: process.env.PGHOST,
-  user: process.env.PGUSER,
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD,
-  port: process.env.PGPORT,
+  connectionString,
 });
