@@ -7,7 +7,7 @@ async function populateTables(tablesSQLArray) {
   console.log("seeding...");
 
   const client = new Client({
-    connectionString: `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}`,
+    connectionString: process.env.CONNECTIONSTRING,
   });
 
   try {
